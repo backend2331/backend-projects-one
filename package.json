@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index2.js",
   "scripts": {
-    "dev": "nodemon mysqlconnection.js",
-    "start": "node mysqlconnection.js"
+    "dev": "nodemon  express-tasks-app.js",
+    "start": "node express-tasks-app.js"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +16,6 @@
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
-    "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.12.0"
   },
