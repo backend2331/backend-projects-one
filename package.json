@@ -1,7 +1,7 @@
 {
   "name": "nodeapp",
   "version": "1.0.0",
-  "main": "index2.js",
+  "main": "express-task-app.js",
   "scripts": {
     "dev": "nodemon  express-tasks-app.js",
     "start": "node express-tasks-app.js"
