@@ -12,3 +12,10 @@ ROLE-BASED ACCESS CONTROL: The API ensures that only users with appropriate role
 
 PURPOSE
 This API serves as a basic task management system where users can track and manage their tasks. It is designed to demonstrate authentication, authorization, and CRUD operations.
+
+
+
+DATABASE CREATION
+ Create a MySQL database (e.g., test).
+ Run the database creation script to set up the required tables and sample data.
+ Update the .env file with your database credentials(example : DB_HOST=localhost, DB_USER=root, ...)

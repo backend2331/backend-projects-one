@@ -1,0 +1,43 @@
+-- Create users table
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('admin', 'user') NOT NULL
+);
+
+-- Create tasks table
+CREATE TABLE IF NOT EXISTS tasks (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    status ENUM('pending', 'in_progress', 'completed') NOT NULL,
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- Insert sample users
+INSERT INTO users (username, password, role) VALUES
+('john_doe', '$2a$10$UzdSwBtG1r0MbG7gkxaoouwMYHy1sga1gHKP0/4l8D9K8h2NvoKV.', 'user'), -- password = password1
+('jane_smith', '$2a$10$6LQCifkdrqDujKOQvZ1Y2enQRlSwL2fkwaQ/YkcY4FefvH15CuPwm', 'admin'), -- password = password2
+('alice_wonder', '$2a$10$fR/ePrRlD5.l35ZZGnEKjuaABYfIZUBh5N8735l53gVoA.NynsEPm', 'user'), -- password = password3
+('bob_builder', '$2a$10$w.//EzgaCdnvLdJBZTB/3.1vcThCGLhX0rA2IUO3EhHue5SnNV2Ly', 'user'), -- password = password4
+('charlie_brown', '$2a$10$S7dDlOoLbfZevTNQxaufR.1sIAqLQ/Ir02dX2gxpPkGXbpxRMqn/e', 'user'), -- password = password5
+('diana_prince', '$2a$10$MVpDpbyMKE3emyyUmUQmk.vaPcWV/b4wod4RoUhgu9XPfJHVlBbOW', 'admin'), -- password = password6
+('edward_snow', '$2a$10$VKKJKmlLnJ/kEfAgaPvysuNOCWMToNRkm9.x39itLbsJh11GvPr8O', 'user'),-- password = password7
+('fiona_apple', '$2a$10$5TRXEaBF4Tat3X7pOARAIuymZYqmK//7jF/G34liEZr0/ZcvdQ8SS', 'user'), -- password = password8
+('george_clark', '$2a$10$oo4.TMz96jPPeUUT3uTT.Ojh2Ce2M0v8EgmJUObAbBZf2BU1MRtLG', 'user'), -- password = password9
+('hannah_montana', '$2a$10$kQ4/Ya0cB8hvEdfWDuhKJ.Fq0NfzTeEJSXKvGLoQyznqWS5XI9u3K', 'user'); -- password = password10
+
+-- sample tasks
+INSERT INTO tasks (title, description, status, user_id) VALUES
+('Task 1', 'Description for Task 1', 'pending', 1),
+('Task 2', 'Description for Task 2', 'in_progress', 2),
+('Task 3', 'Description for Task 3', 'completed', 3),
+('Task 4', 'Description for Task 4', 'pending', 4),
+('Task 5', 'Description for Task 5', 'in_progress', 5),
+('Task 6', 'Description for Task 6', 'completed', 6),
+('Task 7', 'Description for Task 7', 'pending', 7),
+('Task 8', 'Description for Task 8', 'in_progress', 8),
+('Task 9', 'Description for Task 9', 'completed', 9),
+('Task 10', 'Description for Task 10', 'pending', 10);
