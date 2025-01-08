@@ -19,3 +19,13 @@ DATABASE CREATION
  Create a MySQL database (e.g., test).
  Run the database creation script to set up the required tables and sample data.
  Update the .env file with your database credentials(example : DB_HOST=localhost, DB_USER=root, ...)
+
+
+ 
+ Testing the API
+ Test the API endpoints using curl, please refer to the (API Testing Guide) file in this repository
+
+The guide includes:
+ A User registration and login commands
+ Creating, updating, viewing, and deleting tasks
+ Token usage for authentication and authorization

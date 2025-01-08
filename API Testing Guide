@@ -1,0 +1,67 @@
+Follow the steps below to test the API endpoints using these curl commands:
+
+1. REGISTER A USER  
+   Register a new user by replacing the 'username', 'password', and 'role' fields with your desired values:
+
+   curl -X POST http://localhost:8080/register \
+   -H "Content-Type: application/json" \
+   -d '{"username": "example_user", "password": "password1", "role": "user"}'
+   ```
+
+
+2. LOGIN AS USER 
+   You will Obtain a JWT token by logging in with your registered credentials:
+   
+   curl -X POST http://localhost:8080/login \
+   -H "Content-Type: application/json" \
+   -d '{"username": "example_user", "password": "password1"}'
+   
+
+   Copy the token from the response. It will be used for authentication in the rest of the  requests.
+
+
+3. CREATE A TASK  
+   Create a new task using the token obtained in the login step. Replace '<YOUR_TOKEN>' with your JWT token:
+
+   curl -X POST http://localhost:8080/tasks \
+   -H "Content-Type: application/json" \
+   -H "Authorization: Bearer <YOUR_TOKEN>" \
+   -d '{"title": "Task Title", "description": "Task Description", "status": "pending"}'
+   
+
+4. GET ALL TASK BY LOGGED IN USER  
+   Retrieve all tasks for the logged-in user:
+   
+   curl -X GET http://localhost:8080/tasks \
+   -H "Authorization: Bearer <YOUR_TOKEN>"
+
+
+5. GET ALL TASK BY ADMINS  
+   Admin users can fetch all tasks:
+
+   curl -X GET http://localhost:8080/admin/tasks \
+   -H "Authorization: Bearer <YOUR_ADMIN_TOKEN>"
+   
+
+6. UPDATE TASK  
+   Update a specific task by its ID. Replace '<TASK_ID>' with the task's ID and '<YOUR_TOKEN>' with your JWT token:
+
+   curl -X PUT http://localhost:8080/tasks/<TASK_ID> \
+   -H "Content-Type: application/json" \
+   -H "Authorization: Bearer <YOUR_TOKEN>" \
+   -d '{"title": "Updated Title", "description": "Updated Description", "status": "completed"}'
+   
+
+
+7. Delete TASK  
+   Delete a specific task by its ID:
+
+   curl -X DELETE http://localhost:8080/tasks/<TASK_ID> \
+   -H "Authorization: Bearer <YOUR_TOKEN>"
+
+
+
+NOTE:
+ Ensure your MySQL database is running and the required tables are set up as per the database creation script.
+
+By following these steps, you can test all the endpoints of the Task Management API.
